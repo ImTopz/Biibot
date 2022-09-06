@@ -1,0 +1,3 @@
+# 忽略Python虚拟环境文件夹
+venv
+.venv
