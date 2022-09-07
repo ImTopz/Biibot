@@ -19,9 +19,9 @@ def sendMsg(user_id,msg):
 
 
 def add_request(request_flag):
-    url = 'http://127.0.0.1:5801/set_friend_add_request'
+    url = 'http://127.0.0.1:5700/set_friend_add_request'
     data = {'flag':str(request_flag)}
-    res = requests.get(url,params=data)
+    res = requests.post(url,params=data)
     print("加好友成功")
     return res.text
 
