@@ -1,7 +1,8 @@
 #coding=utf-8
 from flask import Flask,request
 import goapi
-import randomdsa
+import click
+import random
 app=Flask(__name__)
 @app.route('/',methods=['POST'])
 def getEvent():
@@ -27,6 +28,13 @@ def getEvent():
     return 'OK'
 
 
+@click.command()
+@click.option('--host', default='localhost', help='set hostname to listen on')
+@click.option('--port', default=5000, help='set service port')
+@click.option('--debug', default=False, help='set debug symbol')
+def main(host, port, debug):
+    """Accounting bot based on gocq-http and flask"""
+    app.run(host, port, debug)
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1',port='5701',debug=False)
+    main()
